@@ -5,7 +5,7 @@ class Solution(object):
             if curr_sum == target:
                 ans.append(subset[:])
                 return
-            if curr_sum > target:
+            if curr_sum> target:
                 return
             for i in range(index,len(candidates)):
                 subset.append(candidates[i])
@@ -13,3 +13,5 @@ class Solution(object):
                 subset.pop()
         backtrack(0,0,[])
         return ans
+
+        
