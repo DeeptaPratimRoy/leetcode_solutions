@@ -9,10 +9,11 @@ class Solution(object):
             for i in range(len(nums)):
                 if visited[i] == False:
                     subset.append(nums[i])
-                    visited[i] = True
+                    visited[i]=True
                     backtrack(subset)
                     subset.pop()
                     visited[i]=False
         backtrack([])
         return ans
+
         
