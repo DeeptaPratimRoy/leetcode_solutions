@@ -9,8 +9,9 @@ class Solution(object):
             if curr_sum > target:
                 return
             for i in range(current,len(candidates)):
-                if i > current and candidates[i] == candidates[i-1]:
-                    continue
+                if i > current:
+                    if candidates[i] == candidates[i-1]:
+                        continue
                 subset.append(candidates[i])
                 backtrack(i+1,curr_sum+candidates[i],subset)
                 subset.pop()
