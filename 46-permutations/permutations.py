@@ -1,11 +1,11 @@
 class Solution(object):
     def permute(self, nums):
         ans = []
-        visited=[False]*len(nums)
+        visited = [False]*len(nums)
         def backtrack(subset):
             if len(subset) == len(nums):
                 ans.append(subset[:])
-                return
+                return 
             for i in range(len(nums)):
                 if visited[i] == False:
                     subset.append(nums[i])
@@ -16,5 +16,5 @@ class Solution(object):
         backtrack([])
         return ans
 
-            
+
         
