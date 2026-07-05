@@ -5,7 +5,7 @@ class Solution(object):
         def backtrack(subset):
             if len(subset) == len(nums):
                 ans.append(subset[:])
-                return 
+                return
             for i in range(len(nums)):
                 if visited[i] == False:
                     subset.append(nums[i])
@@ -15,6 +15,5 @@ class Solution(object):
                     visited[i] = False
         backtrack([])
         return ans
-
-
-        
+                    
+            
