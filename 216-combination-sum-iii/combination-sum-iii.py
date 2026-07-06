@@ -5,7 +5,7 @@ class Solution(object):
             if len(subset) == k:
                 if curr_sum == n:
                     ans.append(subset[:])
-                    return
+                return
             if curr_sum> n:
                 return
             for i in range(index,10):
