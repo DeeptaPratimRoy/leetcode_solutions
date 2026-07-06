@@ -1,7 +1,7 @@
 class Solution(object):
     def maxUniqueSplit(self, s):
-        used = set()
         best = [0]
+        used = set()
         def backtrack(index):
             if index == len(s):
                 best[0] = max(best[0],len(used))
@@ -15,6 +15,4 @@ class Solution(object):
                 used.remove(substring)
         backtrack(0)
         return best[0]
-
-                
                 
