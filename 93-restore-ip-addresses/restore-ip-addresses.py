@@ -5,7 +5,7 @@ class Solution(object):
             if len(subset) == 4:
                 if index == len(s):
                     ans.append(".".join(subset))
-                return
+                    return
             for length in range(1,4):
                 if index+length>len(s):
                     return
