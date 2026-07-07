@@ -1,15 +1,15 @@
 class Solution(object):
     def permuteUnique(self, nums):
-        visited = [False]*len(nums)
         ans = []
         nums.sort()
+        visited = [False]*len(nums)
         def backtrack(subset):
             if len(subset) == len(nums):
                 ans.append(subset[:])
-                return 
+                return
             for i in range(len(nums)):
-                if i>0:
-                    if visited[i-1] == False and nums[i] == nums[i-1]:
+                if i> 0:
+                    if visited[i-1] == False and nums[i-1] == nums[i]:
                         continue
                 if visited[i] == False:
                     subset.append(nums[i])
@@ -19,5 +19,3 @@ class Solution(object):
                     visited[i] = False
         backtrack([])
         return ans
-
-        
