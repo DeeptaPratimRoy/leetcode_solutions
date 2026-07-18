@@ -1,5 +1,6 @@
 class Solution(object):
     def permute(self, nums):
+        nums.sort()
         ans = []
         visited = [False]*len(nums)
         def backtrack(subset):
@@ -15,5 +16,6 @@ class Solution(object):
                     visited[i] = False
         backtrack([])
         return ans
+
+
                     
-            
