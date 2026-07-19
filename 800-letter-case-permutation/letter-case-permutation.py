@@ -1,11 +1,10 @@
 class Solution(object):
     def letterCasePermutation(self, s):
-        ans = []
+        ans= []
         def backtrack(index,subset):
             if index == len(s):
                 ans.append("".join(subset[:]))
                 return
-
             if s[index].isalpha():
                 subset.append(s[index].lower())
                 backtrack(index+1,subset)
@@ -19,5 +18,7 @@ class Solution(object):
                 subset.pop()
         backtrack(0,[])
         return ans
-                
-                
+                    
+                    
+
+        
