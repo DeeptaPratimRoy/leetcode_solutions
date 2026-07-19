@@ -8,8 +8,8 @@ class Solution(object):
                 ans.append(subset[:])
                 return
             for i in range(len(nums)):
-                if i> 0:
-                    if visited[i-1] == False and nums[i-1] == nums[i]:
+                if i > 0:
+                    if visited[i-1] == False and nums[i] == nums[i-1]:
                         continue
                 if visited[i] == False:
                     subset.append(nums[i])
@@ -19,3 +19,6 @@ class Solution(object):
                     visited[i] = False
         backtrack([])
         return ans
+
+
+        
