@@ -1,18 +1,21 @@
+
 class Solution(object):
     def maxUniqueSplit(self, s):
-        best = [0]
+        ans= [0]
         used = set()
         def backtrack(index):
             if index == len(s):
-                best[0] = max(best[0],len(used))
-                return
+                ans[0] = max(ans[0],len(used))
             for end in range(index,len(s)):
                 substring = s[index:end+1]
                 if substring in used:
                     continue
-                used.add(substring)
+                used.add(substring[:])
                 backtrack(end+1)
                 used.remove(substring)
         backtrack(0)
-        return best[0]
+        return ans[0]
+
                 
+
+        
