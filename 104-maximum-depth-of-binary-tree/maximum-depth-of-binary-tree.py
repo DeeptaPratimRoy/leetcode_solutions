@@ -9,8 +9,9 @@ class Solution(object):
         def dfs(node):
             if node is None:
                 return 0
-            left_depth = dfs(node.left)
-            right_depth = dfs(node.right)
-
-            return 1+max(left_depth,right_depth)
+            left = dfs(node.left)
+            right = dfs(node.right)
+            return 1+max(left,right)
         return dfs(root)
+
+        
