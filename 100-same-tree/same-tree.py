@@ -1,16 +1,17 @@
-class Solution:
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
     def isSameTree(self, p, q):
-
-        def dfs(a, b):
-            if a is None and b is None:
+        def dfs(p,q):
+            if p is None and q is None:
                 return True
-
-            if a is None or b is None:
+            if p is None or q is None:
                 return False
-
-            if a.val != b.val:
+            if p.val != q.val:
                 return False
-
-            return dfs(a.left, b.left) and dfs(a.right, b.right)
-
-        return dfs(p, q)
+            return dfs(p.left,q.left) and dfs(p.right,q.right)
+        return dfs(p,q)
