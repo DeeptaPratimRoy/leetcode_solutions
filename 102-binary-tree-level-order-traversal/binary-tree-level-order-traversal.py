@@ -8,15 +8,20 @@ class Solution(object):
             queue.append(node)
             result = []
             while queue:
-                current_list = []
-                new_level = len(queue)
-                for i in range(new_level):
+                current_level =[]
+                level = len(queue)
+                for i in range(level):
                     current_element = queue.popleft()
-                    current_list.append(current_element.val)
+                    current_level.append(current_element.val)
                     if current_element.left:
                         queue.append(current_element.left)
                     if current_element.right:
                         queue.append(current_element.right)
-                result.append(current_list)
+                result.append(current_level)
             return result
         return bfs(root)
+                    
+
+
+
+        
