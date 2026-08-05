@@ -15,3 +15,6 @@ class Solution(object):
                 return False
             return dfs(p.left,q.left) and dfs(p.right,q.right)
         return dfs(p,q)
+            
+
+        
