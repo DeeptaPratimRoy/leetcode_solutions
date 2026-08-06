@@ -13,5 +13,3 @@ class Solution(object):
             right = dfs(node.right)
             return 1+max(left,right)
         return dfs(root)
-
-        
