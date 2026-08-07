@@ -14,11 +14,14 @@ class Solution(object):
                 return node
             left = dfs(node.left)
             right = dfs(node.right)
-            if left and right:
+            if left and right :
                 return node
             if left:
                 return left
             if right:
                 return right
         return dfs(root)
+            
+            
+
         
