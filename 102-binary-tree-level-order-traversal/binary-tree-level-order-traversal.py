@@ -1,14 +1,14 @@
 from collections import deque
-class Solution(object):
-    def levelOrder(self, root):
-        def bfs(node):
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        def dfs(node):
             if node is None:
                 return []
             queue = deque()
             queue.append(node)
             result = []
             while queue:
-                current_level =[]
+                current_level = []
                 level = len(queue)
                 for i in range(level):
                     current_element = queue.popleft()
@@ -19,9 +19,5 @@ class Solution(object):
                         queue.append(current_element.right)
                 result.append(current_level)
             return result
-        return bfs(root)
-                    
-
-
-
+        return dfs(root)
         
