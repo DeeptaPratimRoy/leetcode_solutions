@@ -1,11 +1,11 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
-    def isSameTree(self, p, q):
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         def dfs(p,q):
             if p is None and q is None:
                 return True
@@ -16,5 +16,4 @@ class Solution(object):
             return dfs(p.left,q.left) and dfs(p.right,q.right)
         return dfs(p,q)
             
-
         
