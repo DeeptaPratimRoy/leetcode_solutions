@@ -8,14 +8,18 @@ class Solution:
                 if neighbours not in visited:
                     color[neighbours] = 1- color[node]
                     if dfs(neighbours):
-                        return True
+                        continue
+                    else:
+                        return False
                 elif color[neighbours] == color[node]:
-                    return True
-            return False
+                    return False
+            return True
         for i in range(len(graph)):
             if i not in visited:
                 color[i] = 0
                 if dfs(i):
+                    continue
+                else:
                     return False
         return True
 
