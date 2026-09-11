@@ -7,8 +7,8 @@ class Solution:
         visited = set()
         def dfs(node):
             visited.add(node)
-            for neighbours in adj[node]:
-                if neighbours not in visited:
-                    dfs(neighbours)
+            for nei in adj[node]:
+                if nei not in visited:
+                    dfs(nei)     
         dfs(source)
         return destination in visited
