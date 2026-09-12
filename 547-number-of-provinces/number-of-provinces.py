@@ -10,21 +10,12 @@ class Solution:
         visited = set()
         def dfs(node):
             visited.add(node)
-            for neighbours in adj[node]:
-                if neighbours not in visited:
-                    dfs(neighbours)
+            for nei in adj[node]:
+                if nei not in visited:
+                    dfs(nei)
         count = 0
         for i in range(n):
             if i not in visited:
                 count+=1
                 dfs(i)
         return count
-
-
-
-
-
-
-
-
-
