@@ -1,12 +1,10 @@
-from collections import deque
-
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
         adj = [[] for _ in range(n)]
-        for u, v in edges:
+        for u,v in edges:
             adj[u].append(v)
             adj[v].append(u)
-        visited = set([source])
+        visited =set([source])
         queue = deque([source])
         while queue:
             node = queue.popleft()
@@ -14,6 +12,7 @@ class Solution:
                 return True
             for nei in adj[node]:
                 if nei not in visited:
-                    visited.add(nei)
                     queue.append(nei)
+                    visited.add(nei)
         return False
+        
