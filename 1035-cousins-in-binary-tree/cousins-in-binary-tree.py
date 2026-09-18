@@ -1,15 +1,20 @@
+from collections import deque
 class Solution:
     def isCousins(self, root, x, y):
-        def dfs(node, parent, depth):
-            if node is None:
-                return
-            if node.val == x:
-                self.parent_x, self.depth_x = parent, depth
-            if node.val == y:
-                self.parent_y, self.depth_y = parent, depth
-            dfs(node.left, node, depth + 1)
-            dfs(node.right, node, depth + 1)
-        self.parent_x = self.parent_y = None
-        self.depth_x = self.depth_y = 0
-        dfs(root, None, 0)
-        return self.parent_x != self.parent_y and self.depth_x == self.depth_y
+        queue = deque([(root, None)])
+        while queue:
+            n = len(queue)
+            px = py = None
+            for i in range(n):
+                node, parent = queue.popleft()
+                if node.val == x:
+                    px = parent
+                if node.val == y:
+                    py = parent
+                if node.left:
+                    queue.append((node.left, node))
+                if node.right:
+                    queue.append((node.right, node))
+            if px is not None or py is not None:
+                return px is not None and py is not None and px != py
+        return False
