@@ -16,5 +16,8 @@ class Solution:
                 if node.right:
                     queue.append((node.right, node))
             if px is not None or py is not None:
-                return px is not None and py is not None and px != py
+                if px is not None and py is not None and px != py:
+                    return True
+                else:
+                    return False
         return False
