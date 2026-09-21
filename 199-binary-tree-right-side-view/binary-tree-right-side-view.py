@@ -1,7 +1,7 @@
 from collections import deque
 class Solution:
-    def rightSideView(self, root):
-        if not root:
+    def rightSideView(self, root: TreeNode | None) -> list[int]:
+        if root is None:
             return []
         queue = deque([root])
         result = []
@@ -16,3 +16,9 @@ class Solution:
                 if i == n - 1:
                     result.append(node.val)
         return result
+            
+            
+
+
+
+        
