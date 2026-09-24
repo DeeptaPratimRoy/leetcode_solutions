@@ -1,7 +1,8 @@
 from collections import deque
-
 class Solution:
     def isCousins(self, root: TreeNode | None, x: int, y: int) -> bool:
+        if root is None:
+            return False
         queue = deque([(root, None)])
         while queue:
             n = len(queue)
@@ -18,5 +19,4 @@ class Solution:
                     queue.append((node.right, node))
             if px is not None and py is not None and px != py:
                 return True
-
         return False
