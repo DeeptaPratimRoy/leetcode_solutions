@@ -3,11 +3,11 @@ class Solution:
     def levelOrder(self, root: TreeNode | None) -> list[list[int]]:
         if root is None:
             return []
-        result = []
         queue = deque([root])
+        result= []
         while queue:
-            level = []
             n = len(queue)
+            level = []
             for i in range(n):
                 node = queue.popleft()
                 level.append(node.val)
@@ -17,3 +17,4 @@ class Solution:
                     queue.append(node.right)
             result.append(level)
         return result
+        
