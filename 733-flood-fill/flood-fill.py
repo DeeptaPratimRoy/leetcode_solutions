@@ -1,24 +1,28 @@
+from collections import deque
+from typing import List
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
-        original = image[sr][sc]
-        if original == color:
+        original_color = image[sr][sc]
+        if color == original_color:
             return image
         rows = len(image)
         cols = len(image[0])
-        def dfs(r,c):
-            if r<0 or r>= rows or c<0 or c>=cols:
-                return
-            if image[r][c] != original:
-                return
-            else:
-                image[r][c] = color
-            dfs(r+1,c)
-            dfs(r-1,c)
-            dfs(r,c+1)
-            dfs(r,c-1)           
-        dfs(sr,sc)
-        return image  
-
-                        
-
-        
+        queue = deque([(sr, sc)])
+        while queue:
+            r, c = queue.popleft()
+            image[r][c] = color
+            directions = [
+                (r + 1, c),
+                (r - 1, c),
+                (r, c + 1),
+                (r, c - 1)
+            ]
+            for nr, nc in directions:
+                if (
+                    0 <= nr < rows
+                    and 0 <= nc < cols
+                    and image[nr][nc] == original_color
+                ):
+                    queue.append((nr, nc))
+                    image[nr][nc] = color
+        return image
